@@ -1,0 +1,102 @@
+nav {
+  background-color: #ff9900;
+  display: flex;
+  align-items: center;
+  font-family: 'Paytone One', sans-serif;
+}
+
+nav h1 span {
+  letter-spacing: 0.5rem;
+}
+
+nav h1 {
+  text-shadow: -2px -2px 1px #ffdd5e;
+  color: #ff1100;
+}
+
+nav form {
+  display: flex;
+}
+nav input,
+nav button {
+  margin-left: 3%;
+}
+
+nav button {
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  background-image: linear-gradient(to top right, #ff9900 0%, #ffdd5e 100%);
+  padding: 10px;
+  border: none;
+  width: 150px;
+  transition: 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+  top: 0;
+  left: 0;
+  box-shadow: 0;
+  text-shadow: 0;
+}
+
+nav button:hover {
+  transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  top: -10px;
+  left: 0;
+  transform: rotate(5deg);
+  box-shadow: 1px 1px 1px #222;
+}
+.beerContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  border: 1px solid black;
+  height: 600px;
+  padding: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.beer {
+  border: 1px solid #222;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  width: 300px;
+  height: 250px;
+  overflow: none;
+  box-shadow: 2px 2px 2px #222;
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+  top: 0;
+  left: 0;
+  background: white;
+  font-size: 0.85rem;
+}
+
+.beer:hover {
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: skew(1.1);
+  transform: rotate(10deg);
+  top: -30px;
+  left: 0;
+  box-shadow: 5px 5px 5px #444;
+}
+
+.beer img {
+  max-width: 200px;
+  max-height: 220px;
+}
+
+.beer ul {
+  list-style-type: none;
+  margin-right: 30px;
+}
+
+.beer .fa-star {
+  position: absolute;
+  top: 15px;
+  left: 280px;
+  font-size: 1.5rem;
+  color: #ffdd5e;
+  cursor: pointer;
+}
