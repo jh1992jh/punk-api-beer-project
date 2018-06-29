@@ -1,5 +1,30 @@
+@keyframes appearAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 nav {
-  background-color: #ff9900;
+  background: linear-gradient(to top right, #ff9900 0%, #ffdd5e 100%);
   display: flex;
   align-items: center;
   font-family: 'Paytone One', sans-serif;
@@ -11,10 +36,14 @@ nav h1 span {
 
 nav h1 {
   text-shadow: -2px -2px 1px #ffdd5e;
-  color: #ff1100;
+  color: #ff6600;
 }
 
 nav form {
+  display: flex;
+}
+
+nav .forMobile {
   display: flex;
 }
 nav input,
@@ -22,6 +51,18 @@ nav button {
   margin-left: 3%;
 }
 
+nav .favoritesButton {
+  margin-left: 300px;
+}
+
+nav input,
+nav input:active {
+  border: none;
+  outline: none;
+  background-color: rgba(242, 242, 242, 0.3);
+}
+
+button,
 nav button {
   display: inline;
   font-family: 'Montserrat', sans-serif;
@@ -36,6 +77,7 @@ nav button {
   left: 0;
   box-shadow: 0;
   text-shadow: 0;
+  cursor: pointer;
 }
 
 nav button:hover {
@@ -45,7 +87,16 @@ nav button:hover {
   transform: rotate(5deg);
   box-shadow: 1px 1px 1px #222;
 }
-.beerContainer {
+
+.scroll {
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.beerContainer .beer span .text-bold {
+  color: red;
+}
+.beersContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -54,32 +105,120 @@ nav button:hover {
   height: 600px;
   padding: 50px;
   font-family: 'Montserrat', sans-serif;
+  animation: appearAnim 0.5s;
 }
 
 .beer {
-  border: 1px solid #222;
+  /*border: 1px solid #222; */
   margin: 10px;
   padding: 10px;
   display: flex;
   width: 300px;
   height: 250px;
   overflow: none;
-  box-shadow: 2px 2px 2px #222;
+  /* box-shadow: 2px 2px 2px #222; */
   transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
   position: relative;
   top: 0;
   left: 0;
   background: white;
   font-size: 0.85rem;
+  animation: appearAnim 0.5s;
 }
 
-.beer:hover {
+.favoriteBeer {
+  /*border: 1px solid #222; */
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex: 1;
+  overflow: none;
+  /* box-shadow: 2px 2px 2px #222; */
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+  top: 0;
+  left: 0;
+  background: white;
+  font-size: 0.85rem;
+  animation: appearAnim 0.5s;
+}
+
+.favoriteBeer img {
+  max-height: 320px;
+  max-width: 220px;
+}
+
+.favoriteBeer ul {
+  list-style-type: none;
+}
+
+.favoriteBeer .scroll {
+  overflow-y: scroll;
+  flex: 1;
+}
+.beerContainer {
+  border: 1px solid #222;
+  margin: 10px;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  flex-wrap: wrap;
+  box-shadow: 2px 2px 2px #222;
+  animation: appearAnim 0.5s;
+}
+
+.beerContainer:hover {
   transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: skew(1.1);
   transform: rotate(10deg);
   top: -30px;
   left: 0;
   box-shadow: 5px 5px 5px #444;
+}
+
+.favoriteBeerContainer {
+  border: 1px solid #222;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  max-height: 400px;
+  background: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  flex-wrap: wrap;
+  box-shadow: 2px 2px 2px #222;
+  animation: appearAnim 0.5s;
+  padding: 20px;
+}
+
+.favoriteBeerContainer:hover {
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: skew(1.1);
+  transform: rotate(10deg);
+  top: -30px;
+  left: 0;
+  box-shadow: 5px 5px 5px #444;
+}
+
+.favoriteBeer {
+  flex: 1;
+}
+
+.favoriteBeer .fa-times {
+  position: absolute;
+  top: -20px;
+  left: 380px;
+  font-size: 1.5rem;
+  color: #ff0000;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .beer img {
@@ -99,4 +238,222 @@ nav button:hover {
   font-size: 1.5rem;
   color: #ffdd5e;
   cursor: pointer;
+  transition: 1s;
+}
+
+.beer .fa-star:hover {
+  color: #ffee6f;
+  transition: 1s;
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: appearAnim 0.5s;
+}
+
+.modalWrapper .fa-star {
+  position: absolute;
+  top: -30px;
+  left: 300px;
+  font-size: 1.5rem;
+  color: #ffdd5e;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.modalWrapper .fa-star:hover {
+  color: #ffee6f;
+  transition: 1s;
+}
+
+.modalWrapper .beer img {
+  max-width: 200px;
+  max-height: 220px;
+}
+
+.modalWrapper .scroll {
+  height: 220px;
+}
+
+.modalCard {
+  position: relative;
+  background: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow-y: none;
+  min-width: 350px;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: appearAnim 0.5s both;
+}
+
+.closeButton {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+}
+
+.modalBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  nav form {
+    display: flex;
+    flex-direction: column;
+  }
+  nav form .forMobile {
+    display: flex;
+    margin-top: 10px;
+  }
+  nav button {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+
+  nav form input {
+    height: 30px;
+  }
+
+  nav .favoritesButton {
+    display: block;
+    width: 290px;
+    margin: none;
+    position: absolute;
+    top: 175px;
+    left: -260px;
+  }
+  nav .favoritesButton:hover {
+    display: block;
+    width: 280px;
+    margin: none;
+    position: absolute;
+    top: 175px;
+    left: -260px;
+    opacity: 0;
+  }
+  .closeButton {
+    position: absolute;
+    top: -50px;
+    right: 5px;
+  }
+  .favoriteBeerContainer {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .favoriteBeer ul,
+  .favoriteBeer img {
+    flex: 1;
+  }
+  .favoriteBeer .fa-times {
+    top: -20px;
+    left: 300px;
+  }
+}
+@media only screen and (min-width: 640px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  nav form {
+    display: flex;
+    flex-direction: column;
+  }
+  nav form .forMobile {
+    display: flex;
+    margin-top: 10px;
+  }
+  nav button {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+
+  nav form input {
+    height: 30px;
+  }
+
+  nav .favoritesButton {
+    display: block;
+    width: 290px;
+    margin: none;
+
+    position: absolute;
+    top: 175px;
+    left: -120px;
+  }
+  nav .favoritesButton:hover {
+    display: block;
+    width: 280px;
+    margin: none;
+    position: absolute;
+    top: 175px;
+    left: 20px;
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 736px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  nav form {
+    display: flex;
+    flex-direction: column;
+  }
+  nav form .forMobile {
+    display: flex;
+    margin-top: 10px;
+  }
+  nav button {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+
+  nav form input {
+    height: 30px;
+  }
+
+  nav .favoritesButton {
+    display: block;
+    width: 290px;
+    margin: none;
+    position: absolute;
+    top: 175px;
+    left: -10%;
+  }
+  nav .favoritesButton:hover {
+    display: block;
+    width: 280px;
+    margin: none;
+    position: absolute;
+    top: 175px;
+    left: 20px;
+    opacity: 0;
+  }
 }

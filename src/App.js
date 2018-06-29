@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Favorites from './components/Favorites';
 import BeerContainer from './components/BeerContainer';
 import Beer from './components/Beer';
 import './App.css';
+import MainView from './components/MainView';
 
 class App extends Component {
   constructor(props) {
@@ -13,11 +15,12 @@ class App extends Component {
     this.onGetBeer = this.onGetBeer.bind(this);
     this.onClearSearch = this.onClearSearch.bind(this);
     this.onAddFavorite = this.onAddFavorite.bind(this);
+    this.onDeleteFavorite = this.onDeleteFavorite.bind(this);
 
     this.state = {
       beers: [],
       beersSearched: null,
-      favorties: [],
+      favorites: [],
       loading: true,
       searchBeer: ''
     };
@@ -48,56 +51,62 @@ class App extends Component {
     e.preventDefault();
     this.setState({ beersSearched: null, searchBeer: '' });
   }
-  onAddFavorite() {
-    // TODO: MAKE ADD TO FAVORITES WORK
+  onAddFavorite(beer) {
+    console.log(beer);
+
+    !this.state.favorites.includes(beer) &&
+      this.setState({
+        favorites: [...this.state.favorites, beer]
+      });
+  }
+  onDeleteFavorite(favoriteBeer) {
+    console.log(this.state.favorites.indexOf(favoriteBeer));
+    let favoriteToRemove = this.state.favorites.indexOf(favoriteBeer);
+
+    this.setState({
+      favorites: this.state.favorites.filter(
+        favorite => favorite !== favoriteBeer
+      )
+    });
   }
 
   render() {
-    const { beers, loading, beersSearched } = this.state;
-    let beerContent;
-    if (beers.length === 0 || loading === true) {
-      beerContent = <h1>Loading</h1>;
-    } else if (beersSearched !== null) {
-      beerContent = beersSearched.map((beerSearched, i) => (
-        <Beer
-          key={i}
-          name={beerSearched.name}
-          image={beerSearched.image_url}
-          tagline={beerSearched.tagline}
-          firstBrewed={beerSearched.first_brewed}
-          description={beerSearched.description}
-          yeast={beerSearched.ingredients.yeast}
-          abv={beerSearched.abv}
-          brewersTips={beerSearched.brewers_tips}
-          onAddFavorite={this.onAddFavorite}
-        />
-      ));
-    } else {
-      beerContent = beers.map((beer, i) => (
-        <Beer
-          key={i}
-          name={beer.name}
-          image={beer.image_url}
-          tagline={beer.tagline}
-          firstBrewed={beer.first_brewed}
-          description={beer.description}
-          yeast={beer.ingredients.yeast}
-          abv={beer.abv}
-          brewersTips={beer.brewers_tips}
-          onAddFavorite={this.onAddFavorite}
-        />
-      ));
-    }
+    const { beers, loading, beersSearched, favorites } = this.state;
     return (
-      <Fragment>
-        <Navbar
-          searchBeer={this.state.searchBeer}
-          onSearchBeer={this.onSearchBeer}
-          onGetBeer={this.onGetBeer}
-          onClearSearch={this.onClearSearch}
-        />
-        <BeerContainer>{beerContent}</BeerContainer>
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Navbar
+            searchBeer={this.state.searchBeer}
+            onSearchBeer={this.onSearchBeer}
+            onGetBeer={this.onGetBeer}
+            onClearSearch={this.onClearSearch}
+            location={this.props}
+          />
+
+          <Route
+            exact
+            path="/favorites"
+            render={() => (
+              <Favorites
+                favorites={favorites}
+                onDeleteFavorite={this.onDeleteFavorite}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <MainView
+                beers={beers}
+                loading={loading}
+                beersSearched={beersSearched}
+                onAddFavorite={this.onAddFavorite}
+              />
+            )}
+          />
+        </Fragment>
+      </Router>
     );
   }
 }
