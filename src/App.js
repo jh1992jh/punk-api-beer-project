@@ -73,7 +73,7 @@ class App extends Component {
   render() {
     const { beers, loading, beersSearched, favorites } = this.state;
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Fragment>
           <Navbar
             searchBeer={this.state.searchBeer}
