@@ -22,7 +22,7 @@ class Favorites extends Component {
 
     return (
       <Fragment>
-        <BeerContainer>{favoriteContent}</BeerContainer>
+        <BeerContainer showButton="Go Back">{favoriteContent}</BeerContainer>
       </Fragment>
     );
   }

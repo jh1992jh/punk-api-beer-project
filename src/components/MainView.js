@@ -19,7 +19,7 @@ class MainView extends Component {
     }
     return (
       <div>
-        <BeerContainer>{beerContent}</BeerContainer>
+        <BeerContainer showButton="favorites">{beerContent}</BeerContainer>
       </div>
     );
   }

@@ -27,16 +27,7 @@ class Navbar extends Component {
           </div>
         </form>
         <Link to="/favorites">
-          <button
-            className="favoritesButton"
-            /*style={
-              this.props.match.params.url === '/favorites'
-                ? { display: 'none' }
-                : null
-            }*/
-          >
-            Favorites
-          </button>
+          <button className="favoritesButton">Favorites</button>
         </Link>
       </nav>
     );
