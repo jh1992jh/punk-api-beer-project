@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Favorites from './components/Favorites';
-import BeerContainer from './components/BeerContainer';
-import Beer from './components/Beer';
 import './App.css';
 import MainView from './components/MainView';
 
@@ -40,7 +38,7 @@ class App extends Component {
   }
   onGetBeer(e) {
     e.preventDefault();
-    const { beers, searchBeer, loading } = this.state;
+    const { searchBeer } = this.state;
     this.setState({ loading: true });
     fetch(`https://api.punkapi.com/v2/beers?beer_name=${searchBeer}`)
       .then(res => res.json())
@@ -52,7 +50,7 @@ class App extends Component {
     this.setState({ beersSearched: null, searchBeer: '' });
   }
   onAddFavorite(beer) {
-    console.log(beer);
+  
 
     !this.state.favorites.includes(beer) &&
       this.setState({
@@ -60,8 +58,8 @@ class App extends Component {
       });
   }
   onDeleteFavorite(favoriteBeer) {
-    console.log(this.state.favorites.indexOf(favoriteBeer));
-    let favoriteToRemove = this.state.favorites.indexOf(favoriteBeer);
+    
+
 
     this.setState({
       favorites: this.state.favorites.filter(

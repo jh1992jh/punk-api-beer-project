@@ -4,7 +4,7 @@ import FavoriteBeer from './FavoriteBeer';
 
 class Favorites extends Component {
   componentDidMount() {
-    console.log(this.props.favorites);
+    
   }
   render() {
     const { favorites, onDeleteFavorite } = this.props;
@@ -14,6 +14,7 @@ class Favorites extends Component {
         <FavoriteBeer
           favoriteBeer={favorite}
           onDeleteFavorite={onDeleteFavorite}
+          key={i}
         />
       ));
     } else {

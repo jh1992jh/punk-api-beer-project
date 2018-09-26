@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   componentDidMount() {
-    console.log(this.props.location);
   }
   render() {
     const { searchBeer, onSearchBeer, onGetBeer, onClearSearch } = this.props;

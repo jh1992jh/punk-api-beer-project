@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import ToggleRPC from './ToggleRPC';
-import Portal from './Portal';
 import Modal from './Modal';
 
 class Beer extends Component {
