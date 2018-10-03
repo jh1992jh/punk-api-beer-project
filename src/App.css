@@ -28,6 +28,7 @@ nav {
   display: flex;
   align-items: center;
   font-family: 'Paytone One', sans-serif;
+  padding: 0 1em;
 }
 
 nav h1 span {
@@ -101,8 +102,8 @@ nav button:hover {
   justify-content: center;
   flex-wrap: wrap;
   overflow-y: scroll;
-  border: 1px solid black;
-  height: auto;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  height: 100vh;
   padding: 50px;
   font-family: 'Montserrat', sans-serif;
   animation: appearAnim 0.5s;
@@ -157,7 +158,6 @@ nav button:hover {
   flex: 1;
 }
 .beerContainer {
-  border: 1px solid #222;
   margin: 10px;
   width: 400px;
   height: 350px;
@@ -168,7 +168,7 @@ nav button:hover {
   top: 0;
   left: 0;
   flex-wrap: wrap;
-  box-shadow: 2px 2px 2px #222;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   animation: appearAnim 0.5s;
 }
 
@@ -178,11 +178,10 @@ nav button:hover {
   transform: rotate(10deg);
   top: -30px;
   left: 0;
-  box-shadow: 5px 5px 5px #444;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.12), 0 3px 4px rgba(0,0,0,0.24);
 }
 
 .favoriteBeerContainer {
-  border: 1px solid #222;
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -193,7 +192,7 @@ nav button:hover {
   top: 0;
   left: 0;
   flex-wrap: wrap;
-  box-shadow: 2px 2px 2px #222;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   animation: appearAnim 0.5s;
   padding: 20px;
 }
@@ -204,7 +203,7 @@ nav button:hover {
   transform: rotate(10deg);
   top: -30px;
   left: 0;
-  box-shadow: 5px 5px 5px #444;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.12), 0 3px 4px rgba(0,0,0,0.24);
 }
 
 .favoriteBeer {
